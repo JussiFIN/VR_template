@@ -9,7 +9,8 @@ public class FireBulletOnActivate : MonoBehaviour
 
     void Start()
     {
-        XRGrabInteractable grabbable = GetComponent<XRGrabInteractable>();
+        //XRGrabInteractable grabbable = GetComponent<XRGrabInteractable>();
+        XRGrabInteractableTwoAttach grabbable = GetComponent < XRGrabInteractableTwoAttach>();
         grabbable.activated.AddListener(FireBullet);
     }
 
