@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Left Hand
   - Right Hand
+  - Iron
+  - Ground
+  - Flesh
   layers:
   - Default
   - TransparentFX

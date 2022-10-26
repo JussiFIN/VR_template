@@ -24,6 +24,7 @@ public class FireBulletOnActivate : MonoBehaviour
         spawnedBullet.transform.rotation = Quaternion.LookRotation(spawnPos.forward, spawnPos.up);  //asetetaan myös rotaatio jota ei ollu tutoriaalissa
         pistolSounds.PlayShotSound();
         spawnedBullet.GetComponent<Rigidbody>().velocity = spawnPos.forward * speed;
-        Destroy(spawnedBullet, 3f);
+                
+        //Destroy(spawnedBullet, 3f);   //tuhotaanki PistolBulletHead scriptissä
     }
 }
