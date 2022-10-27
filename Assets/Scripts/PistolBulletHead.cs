@@ -24,7 +24,7 @@ public class PistolBulletHead : MonoBehaviour
             HitOnRicochet();
         }
 
-        Destroy(gameObject, 2f);    //annetaan 2 sekuntia aikaa soittaa äänet
+        Destroy(gameObject, 2f);    //annetaan 2 sekuntia aikaa soittaa äänet. JUUH, EI NÄIN
     }   
 
     void HitOnIron()

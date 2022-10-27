@@ -7,7 +7,7 @@ public class AnimateHandOnInput : MonoBehaviour
 {
     public InputActionProperty pinchAnimationAction;
     public InputActionProperty gripAnimationAction;
-    Animator handAnimator;  //tutoriaalissa tämä oli public
+    Animator handAnimator;
 
     void Start()
     {

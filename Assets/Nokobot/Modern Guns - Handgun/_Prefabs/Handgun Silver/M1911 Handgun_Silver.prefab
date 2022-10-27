@@ -158,6 +158,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 235471440637516973, guid: a78a725941312494b930d664f3b315d0,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1351224411222918336, guid: a78a725941312494b930d664f3b315d0,
         type: 3}
       propertyPath: m_Layer
@@ -237,24 +242,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7759634740334517627}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7759028873871711476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7757947126742549135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 463b4bb1b79b081479fcb8f9c17c78df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pistolAudio: {fileID: 5727378123185068486}
-  shot: {fileID: 8300000, guid: 77cd695bccfd4a04aada04d8fbf3ab3e, type: 3}
-  emptyShot: {fileID: 8300000, guid: fb62af25cdd3a3046acc09b6ef05b5c1, type: 3}
-  hammerMoving: {fileID: 8300000, guid: 776bf579d62fb74418e14839ab1683bc, type: 3}
-  sliderGoingBack: {fileID: 8300000, guid: 92a1933f1ba8aae4aab45c9c0b53fcda, type: 3}
-  sliderGoingForward: {fileID: 8300000, guid: 675ac1be29443494dbd04523673db2ce, type: 3}
 --- !u!82 &5727378123185068486
 AudioSource:
   m_ObjectHideFlags: 0
@@ -351,3 +338,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7759028873871711476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7757947126742549135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 463b4bb1b79b081479fcb8f9c17c78df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pistolAudio: {fileID: 5727378123185068486}
+  shot: {fileID: 8300000, guid: 77cd695bccfd4a04aada04d8fbf3ab3e, type: 3}
+  emptyShot: {fileID: 8300000, guid: fb62af25cdd3a3046acc09b6ef05b5c1, type: 3}
+  hammerMoving: {fileID: 8300000, guid: 776bf579d62fb74418e14839ab1683bc, type: 3}
+  sliderGoingBack: {fileID: 8300000, guid: 92a1933f1ba8aae4aab45c9c0b53fcda, type: 3}
+  sliderGoingForward: {fileID: 8300000, guid: 675ac1be29443494dbd04523673db2ce, type: 3}
