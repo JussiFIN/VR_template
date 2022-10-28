@@ -10,12 +10,15 @@ public class FireBulletOnActivate : MonoBehaviour
     public float speed = 10f;
     PistolSounds pistolSounds;
     [SerializeField] GameObject muzzleFlash;
-
-    bool bulletTimeActivated = false;
+        
     public int bulletsInMagazine = 28;
+
+    public BulletTime bulletTime;
 
     void Start()
     {
+        bulletTime = Camera.main.GetComponent<BulletTime>();
+
         pistolSounds = GetComponent<PistolSounds>();
 
         //XRGrabInteractable grabbable = GetComponent<XRGrabInteractable>();
@@ -32,7 +35,7 @@ public class FireBulletOnActivate : MonoBehaviour
             bulletsInMagazine--;
         }          
 
-        if (bulletTimeActivated) {
+        if (bulletTime.bulletTimeActive) {
             FireBulletRigidbody();
         } else {            
             FireBulletHitScan();
@@ -57,10 +60,7 @@ public class FireBulletOnActivate : MonoBehaviour
         RaycastHit hit;        
         Physics.Raycast(spawnPos.position, spawnPos.forward, out hit, 50f);
 
-        if (!hit.collider) {
-            Debug.Log("hit = null  ");
-        } else {
-
+        if (hit.collider) {
             GameObject spawnedBullet = Instantiate(bullet);     //tehd‰‰n luoti GameObject, "poolaa" t‰m‰ 
             spawnedBullet.transform.position = hit.point;
             //Destroy(spawnedBullet, 3f);   //tuhotaanki PistolBulletHead scriptiss‰
@@ -79,7 +79,15 @@ public class FireBulletOnActivate : MonoBehaviour
     {
         GameObject casingGO = Instantiate(bulletCasing);
         casingGO.transform.position = spawnPosCasing.position;
-        casingGO.transform.rotation = Quaternion.LookRotation(spawnPosCasing.up, spawnPosCasing.right);
-        casingGO.GetComponent<Rigidbody>().velocity = spawnPosCasing.forward * 10f;
+        //casingGO.transform.rotation = Quaternion.LookRotation(spawnPosCasing.up, spawnPosCasing.right);
+        float r1 = Random.Range(0f, 359f), r2 = Random.Range(0f, 359f), r3 = Random.Range(0f, 359f);
+        casingGO.transform.rotation = Quaternion.LookRotation(new Vector3(r1, r2, r3), new Vector3(r2, r3, r1));
+        
+        float casingSpeed = 10f;
+        if (bulletTime.bulletTimeActive) {
+            casingSpeed = 2f;
+        }
+
+        casingGO.GetComponent<Rigidbody>().velocity = spawnPosCasing.forward * casingSpeed;
     }
 }

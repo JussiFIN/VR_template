@@ -1,23 +1,53 @@
+using System.Collections;
 using UnityEngine;
 
 public class PistolBulletCasing : MonoBehaviour
 {
+    [SerializeField] Rigidbody rb;
     [SerializeField] AudioSource casingAudio;
     [SerializeField] AudioClip[] casingClip = new AudioClip[3];
 
+    float defaultPitch;
+    BulletTime bulletTime;
+
     void Start()
     {
-        Destroy(gameObject, 5f);
+        bulletTime = Camera.main.GetComponent<BulletTime>();        
+
+        Destroy(gameObject, 10f);
     }
 
     void OnCollisionEnter(Collision collision)
     {
+        HandleBulletTime();
+
         casingAudio.pitch = RandomPitchInRange(0.1f);
         casingAudio.PlayOneShot(casingClip[Random.Range(0,2)]);
     }
 
     float RandomPitchInRange(float range)
     {
-        return Random.Range(1f - range, 1f + range);
+        if (bulletTime.bulletTimeActive) {
+            defaultPitch = 0.5f;
+        } else {
+            defaultPitch = 1f;
+        }
+        return Random.Range(defaultPitch - range, defaultPitch + range);
+    }
+
+    void HandleBulletTime()
+    {
+        if (bulletTime.bulletTimeActive) {
+            rb.useGravity = false;
+            JustWaitAndDoAfter(2f);            
+        } else {
+            rb.useGravity = true;
+        }
+    }
+
+    IEnumerator JustWaitAndDoAfter(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        rb.useGravity = true;               //joo t‰m‰ ei toimi, se ei laita painovoimaa p‰‰lle
     }
 }

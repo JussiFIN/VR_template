@@ -17,7 +17,14 @@ public class PistolBulletHead : MonoBehaviour
     [SerializeField] GameObject impactStone;
     [SerializeField] GameObject impactWood;
 
-    
+    float defaultPitch;
+    public BulletTime bulletTime;
+
+    void Start()
+    {
+        bulletTime = Camera.main.GetComponent<BulletTime>();
+    }
+
     void OnCollisionEnter(Collision collision)
     {
         audioBulletHead.pitch = RandomPitchInRange(0.05f);
@@ -110,6 +117,11 @@ public class PistolBulletHead : MonoBehaviour
 
     float RandomPitchInRange(float range)
     {
-        return Random.Range(1f - range, 1f + range);
+        if (bulletTime.bulletTimeActive) {
+            defaultPitch = 0.5f;
+        } else {
+            defaultPitch = 1f;
+        }
+        return Random.Range(defaultPitch - range, defaultPitch + range);
     }
 }

@@ -23,7 +23,7 @@ public class ActivateGrabRay : MonoBehaviour
     public Gradient gradientShow;   //viiva näkyvissä
 
     void Start()
-    {        
+    {
         leftXRLine = leftGrabRay.GetComponent<XRInteractorLineVisual>();
         rightXRLine = rightGrabRay.GetComponent<XRInteractorLineVisual>();
         SetGrabRayGradients();

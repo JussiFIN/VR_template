@@ -77,11 +77,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78714ee5849a3c748b6409c1a242082b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 8403992145370945202}
   casingAudio: {fileID: 1932279556101891942}
   casingClip:
   - {fileID: 8300000, guid: 5aa90e3a6bcb15d40bc16ce0bd3dba2e, type: 3}
   - {fileID: 8300000, guid: 28556bad58900964fb23da93b788bc43, type: 3}
   - {fileID: 8300000, guid: 5cea80ed24b85fc43adcf206aa03a06e, type: 3}
+  bulletTime: {fileID: 0}
 --- !u!82 &1932279556101891942
 AudioSource:
   m_ObjectHideFlags: 0
