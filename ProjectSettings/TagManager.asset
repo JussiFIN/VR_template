@@ -9,6 +9,9 @@ TagManager:
   - Iron
   - Ground
   - Flesh
+  - Wood
+  - Stone
+  - Sand
   layers:
   - Default
   - TransparentFX

@@ -12,8 +12,12 @@ public class PistolSounds : MonoBehaviour
 
     public void PlayShotSound()
     {
-        //pistolAudio.clip = shot;
         pistolAudio.PlayOneShot(shot);
+    }
+
+    public void PlayEmptySound()
+    {
+        pistolAudio.PlayOneShot(emptyShot);
     }
 }
 

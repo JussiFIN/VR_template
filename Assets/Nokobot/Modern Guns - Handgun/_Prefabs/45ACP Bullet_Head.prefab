@@ -95,6 +95,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: 45ACP Bullet_Head
       objectReference: {fileID: 0}
+    - target: {fileID: 7772479023566891999, guid: 9e0ef2cf9cfc11c46bbe7f28b272f6fb,
+        type: 3}
+      propertyPath: hitWood.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 17ce4f7cf62d22e4da23790b29b983b9, type: 3}
+    - target: {fileID: 7772479023566891999, guid: 9e0ef2cf9cfc11c46bbe7f28b272f6fb,
+        type: 3}
+      propertyPath: hitWood.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3fef436c74e295f4f8408b72a1c985c7, type: 3}
     - target: {fileID: 8535412081993147290, guid: 9e0ef2cf9cfc11c46bbe7f28b272f6fb,
         type: 3}
       propertyPath: m_RootOrder
