@@ -46,7 +46,8 @@ public class PistolBulletHead : MonoBehaviour
             HitOnSand(collision);
         }
 
-        Destroy(gameObject, 3f);    //annetaan 3 sekuntia aikaa soittaa ‰‰net. TOISTAISEKSI toimii n‰in
+        Destroy(gameObject, 6f);    //annetaan 6 sekuntia aikaa soittaa ‰‰net. TOISTAISEKSI toimii n‰in
+                                    //impact prefabit tuhoaa itse itsens‰
     }   
 
     void HitOnIron(Collision col)
@@ -57,8 +58,6 @@ public class PistolBulletHead : MonoBehaviour
         GameObject hitStoneGO = Instantiate(impactMetal);
         hitStoneGO.transform.position = transform.position;
         hitStoneGO.transform.rotation = Quaternion.LookRotation(col.GetContact(0).normal, col.transform.right);
-
-        Destroy(hitStoneGO, 3f);
     }
 
     void HitOnFlesh(Collision col)
@@ -70,7 +69,7 @@ public class PistolBulletHead : MonoBehaviour
         hitFleshGO.transform.position = transform.position;
         hitFleshGO.transform.rotation = Quaternion.LookRotation(col.GetContact(0).normal, col.transform.right);
         
-        Destroy(hitFleshGO, 3f);
+        HandleBulletTime(hitFleshGO);
     }
 
     void HitOnRicochet(Collision col)
@@ -87,8 +86,8 @@ public class PistolBulletHead : MonoBehaviour
         GameObject hitWoodGO = Instantiate(impactWood);
         hitWoodGO.transform.position = transform.position;
         hitWoodGO.transform.rotation = Quaternion.LookRotation(col.GetContact(0).normal, col.transform.right);
-        
-        Destroy(hitWoodGO, 3f);
+
+        HandleBulletTime(hitWoodGO);
     }
 
     void HitOnStone(Collision col)
@@ -99,8 +98,6 @@ public class PistolBulletHead : MonoBehaviour
         GameObject hitStoneGO = Instantiate(impactStone);
         hitStoneGO.transform.position = transform.position;
         hitStoneGO.transform.rotation = Quaternion.LookRotation(col.GetContact(0).normal, col.transform.right);
-
-        Destroy(hitStoneGO, 3f);
     }
 
     void HitOnSand(Collision col)
@@ -111,8 +108,6 @@ public class PistolBulletHead : MonoBehaviour
         GameObject hitSandGO = Instantiate(impactSand);
         hitSandGO.transform.position = transform.position;
         hitSandGO.transform.rotation = Quaternion.LookRotation(col.GetContact(0).normal, col.transform.right);
-
-        Destroy(hitSandGO, 3f);
     }
 
     float RandomPitchInRange(float range)
@@ -123,5 +118,13 @@ public class PistolBulletHead : MonoBehaviour
             defaultPitch = 1f;
         }
         return Random.Range(defaultPitch - range, defaultPitch + range);
+    }
+
+    void HandleBulletTime(GameObject go){
+        if (bulletTime.bulletTimeActive) {
+            ParticleSystem ps = go.GetComponent<ParticleSystem>();
+            var main = ps.main;
+            main.simulationSpeed = 0.2f;
+        }
     }
 }
