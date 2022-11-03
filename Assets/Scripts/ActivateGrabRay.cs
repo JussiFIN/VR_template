@@ -19,8 +19,9 @@ public class ActivateGrabRay : MonoBehaviour
     [SerializeField] XRInteractorLineVisual rightXRLine;
 
     public Gradient gradientHide;   //viiva piiloon
-    public Gradient gradientHilight;//viiva highlightattu
     public Gradient gradientShow;   //viiva näkyvissä
+    public Gradient gradientShowHilight;//viiva highlightattu
+    
 
     void Start()
     {
@@ -40,9 +41,9 @@ public class ActivateGrabRay : MonoBehaviour
     void SetGrabRayGradients()
     {
         rightXRLine.invalidColorGradient = gradientHide;
-        rightXRLine.validColorGradient = gradientHilight;
+        rightXRLine.validColorGradient = gradientShowHilight;
         leftXRLine.invalidColorGradient = gradientHide;
-        leftXRLine.validColorGradient = gradientHilight;
+        leftXRLine.validColorGradient = gradientShowHilight;
     }
 
     public void ShowGrabRayWhenInvalid()

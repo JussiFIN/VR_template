@@ -8,6 +8,7 @@ public class PistolBulletCasing : MonoBehaviour
     [SerializeField] AudioClip[] casingClip = new AudioClip[3];
 
     float defaultPitch;
+    float defaultMass;
     BulletTime bulletTime;
 
     void Start()
@@ -28,9 +29,9 @@ public class PistolBulletCasing : MonoBehaviour
     float RandomPitchInRange(float range)
     {
         if (bulletTime.bulletTimeActive) {
-            defaultPitch = 0.5f;
+            defaultPitch = 0.5f;            
         } else {
-            defaultPitch = 1f;
+            defaultPitch = 1f;            
         }
         return Random.Range(defaultPitch - range, defaultPitch + range);
     }
@@ -38,11 +39,14 @@ public class PistolBulletCasing : MonoBehaviour
     void HandleBulletTime()
     {
         if (bulletTime.bulletTimeActive) {
-            rb.useGravity = false;
-            JustWaitAndDoAfter(2f);            
+            //rb.useGravity = false;
+            //JustWaitAndDoAfter(2f);
+            defaultMass = 0.1f;
         } else {
-            rb.useGravity = true;
+            //rb.useGravity = true;
+            defaultMass = 1f;
         }
+        rb.mass = defaultMass;
     }
 
     IEnumerator JustWaitAndDoAfter(float delay)

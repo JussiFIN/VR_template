@@ -33,7 +33,7 @@ public class PistolSounds : MonoBehaviour
     float RandomPitchInRange(float range)
     {
         if (bulletTime.bulletTimeActive) {
-            defaultPitch = 0.5f;
+            defaultPitch = 0.2f;
         } else {
             defaultPitch = 1f;
         }

@@ -63,6 +63,7 @@ public class FireBulletOnActivate : MonoBehaviour
         if (hit.collider) {
             GameObject spawnedBullet = Instantiate(bullet);     //tehd‰‰n luoti GameObject, "poolaa" t‰m‰ 
             spawnedBullet.transform.position = hit.point;
+            //spawnedBullet.GetComponent<Rigidbody>().isKinematic = true;   //WTF! t‰m‰ est‰‰ partikkeliefektin?
             //Destroy(spawnedBullet, 3f);   //tuhotaanki PistolBulletHead scriptiss‰
         }
     }
@@ -72,6 +73,9 @@ public class FireBulletOnActivate : MonoBehaviour
         GameObject muzzleFlashGO = Instantiate(muzzleFlash);
         muzzleFlashGO.transform.position = spawnPos.position;
         muzzleFlashGO.transform.rotation = Quaternion.LookRotation(spawnPos.up, spawnPos.right);
+
+        HandleBulletTime(muzzleFlashGO);
+
         Destroy(muzzleFlashGO, 0.2f);
     }
 
@@ -89,5 +93,14 @@ public class FireBulletOnActivate : MonoBehaviour
         }
 
         casingGO.GetComponent<Rigidbody>().velocity = spawnPosCasing.forward * casingSpeed;
+    }
+
+    void HandleBulletTime(GameObject go)
+    {
+        if (bulletTime.bulletTimeActive) {
+            ParticleSystem ps = go.GetComponent<ParticleSystem>();
+            var main = ps.main;
+            main.simulationSpeed = 0.2f;
+        }
     }
 }

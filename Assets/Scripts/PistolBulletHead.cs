@@ -52,9 +52,10 @@ public class PistolBulletHead : MonoBehaviour
 
     void HitOnIron(Collision col)
     {
-        int rClip = Random.Range(0, hitIron.Length);    
+        int rClip = Random.Range(0, hitIron.Length);
         audioBulletHead.PlayOneShot(hitIron[rClip]);
 
+        // joskus tuo impactMetal tehdään sentti törmätyn objectin sisälle, eikä jälki näy vaikka partikkelit näkyy
         GameObject hitStoneGO = Instantiate(impactMetal);
         hitStoneGO.transform.position = transform.position;
         hitStoneGO.transform.rotation = Quaternion.LookRotation(col.GetContact(0).normal, col.transform.right);
