@@ -126,6 +126,8 @@ public class PistolBulletHead : MonoBehaviour
             ParticleSystem ps = go.GetComponent<ParticleSystem>();
             var main = ps.main;
             main.simulationSpeed = 0.2f;
+
+            //bulletTrailGO.gameObject.SetActive(true);
         }
     }
 }
