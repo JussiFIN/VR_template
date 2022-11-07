@@ -17,12 +17,17 @@ public class PistolBulletHead : MonoBehaviour
     [SerializeField] GameObject impactStone;
     [SerializeField] GameObject impactWood;
 
+    TrailRenderer bulletTrail;
+
     float defaultPitch;
     public BulletTime bulletTime;
 
     void Start()
     {
         bulletTime = Camera.main.GetComponent<BulletTime>();
+
+        bulletTrail = GetComponent<TrailRenderer>();
+        SetBulletTrailForBulletTime();
     }
 
     void OnCollisionEnter(Collision collision)
@@ -126,8 +131,15 @@ public class PistolBulletHead : MonoBehaviour
             ParticleSystem ps = go.GetComponent<ParticleSystem>();
             var main = ps.main;
             main.simulationSpeed = 0.2f;
+        }
+    }
 
-            //bulletTrailGO.gameObject.SetActive(true);
+    void SetBulletTrailForBulletTime()
+    {
+        if (bulletTime.bulletTimeActive) {
+            bulletTrail.emitting = true;
+        } else {
+            bulletTrail.emitting = false;
         }
     }
 }
