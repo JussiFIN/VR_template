@@ -4,6 +4,8 @@
  
  This is also for me to learn about XR Toolkit usage. That's why handling the gun is separated weirdly.
 
+
+If picture below doesn't show here's direct link for it: https://i.postimg.cc/zDMS4ysD/pelikuvaa.png
 [![pelikuvaa.png](https://i.postimg.cc/zDMS4ysD/pelikuvaa.png)](https://postimg.cc/6Trvvp6F)
 
 Short youtube video: https://youtu.be/m9YYezTGZj8
